@@ -32,8 +32,8 @@
         <form action="update.jsp" method="post">
             idEntidadBancaria <input type="text" name="idEntidadBancaria" value="<%=entidadBancaria.getIdEntidadBancaria()%>" > <br>
             codigoEntidad: <input type="text" name="codigoEntidad" value="<%=entidadBancaria.getCodigoEntidad()%>"> <br>
-            Nombre: <input type="text" name="Nombre" value="<%=entidadBancaria.getNombre() %>" > <br>
-            Cif: <input type="text" name="Cif" value="<%=entidadBancaria.getCif() %>" > <br>
+            Nombre: <input type="text" name="Nombre" value="<%=entidadBancaria.getNombre()%>" > <br>
+            Cif: <input type="text" name="Cif" value="<%=entidadBancaria.getCif()%>" > <br>
             tipoEntidadBancaria: 
             <input type="radio" name="tipo"    value="banco"  />BANCO
             <input type="radio" name="tipo"   value="cajadeahorro" />CAJADEAHORRO
