@@ -52,8 +52,12 @@ public class EntidadBancariaDAOImplJDBC implements com.fpmislata.prueba.Datos.En
                 entidadBancaria.setCodigoEntidad(codigoEntidad);
                 entidadBancaria.setNombre(nombre);
                 entidadBancaria.setCif(cif);
-                entidadBancaria.setTipoEntidadBancaria(TipoEntidadBancaria.valueOf(tipoEntidadBancaria));
 
+                if (tipoEntidadBancaria == null) {
+                    entidadBancaria.setTipoEntidadBancaria(null);
+                } else {
+                    entidadBancaria.setTipoEntidadBancaria(TipoEntidadBancaria.valueOf(tipoEntidadBancaria));
+                }
 
 
                 if (rs.next() == true) {
@@ -93,9 +97,9 @@ public class EntidadBancariaDAOImplJDBC implements com.fpmislata.prueba.Datos.En
 
 
             if (entidadBancaria.getTipoEntidadBancaria() == null) {
-             preparedStatement2.setString(5, null);
+                preparedStatement2.setString(5, null);
             } else {
-               preparedStatement2.setString(5, entidadBancaria.getTipoEntidadBancaria().name());
+                preparedStatement2.setString(5, entidadBancaria.getTipoEntidadBancaria().name());
             }
 // execute insert SQL stetement
             preparedStatement2.executeUpdate();
@@ -116,10 +120,10 @@ public class EntidadBancariaDAOImplJDBC implements com.fpmislata.prueba.Datos.En
             String updateTableSQL = "UPDATE entidadbancaria SET codigoEntidad=?,nombre= ?,cif=?  WHERE idEntidad= ?";
             PreparedStatement preparedStatement3 = connection.prepareStatement(updateTableSQL);
             preparedStatement3.setInt(1, entidadBancaria.getIdEntidadBancaria());
-            preparedStatement3.setString(2,entidadBancaria.getCodigoEntidad());
+            preparedStatement3.setString(2, entidadBancaria.getCodigoEntidad());
             preparedStatement3.setString(3, entidadBancaria.getNombre());
             preparedStatement3.setString(3, entidadBancaria.getCif());
-            
+
 // execute insert SQL stetement
             preparedStatement3.executeUpdate();
             connection.close();
