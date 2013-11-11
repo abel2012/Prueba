@@ -122,7 +122,7 @@ public class EntidadBancariaDAOImplJDBC implements com.fpmislata.prueba.Datos.En
             preparedStatement3.setInt(1, entidadBancaria.getIdEntidadBancaria());
             preparedStatement3.setString(2, entidadBancaria.getCodigoEntidad());
             preparedStatement3.setString(3, entidadBancaria.getNombre());
-            preparedStatement3.setString(3, entidadBancaria.getCif());
+            preparedStatement3.setString(4, entidadBancaria.getCif());
 
 // execute insert SQL stetement
             preparedStatement3.executeUpdate();

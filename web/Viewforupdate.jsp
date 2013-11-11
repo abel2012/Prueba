@@ -30,7 +30,7 @@
     <body>
         <h1>Hello World!</h1>
         <form action="update.jsp" method="post">
-            idEntidadBancaria <input type="text" name="idEntidadBancaria" value="<%=entidadBancaria.getIdEntidadBancaria()%> " > <br>
+            idEntidadBancaria <input type="text" name="idEntidadBancaria" value="<%=entidadBancaria.getIdEntidadBancaria()%>" > <br>
             codigoEntidad: <input type="text" name="codigoEntidad" value="<%=entidadBancaria.getCodigoEntidad()%>"> <br>
             Nombre: <input type="text" name="Nombre" value="<%=entidadBancaria.getNombre() %>" > <br>
             Cif: <input type="text" name="Cif" value="<%=entidadBancaria.getCif() %>" > <br>
