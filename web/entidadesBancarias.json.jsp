@@ -7,8 +7,8 @@
 <%
 
     EntidadBancariaDAO entidadBancariaDAO = new EntidadBancariaDAOImplJDBC();
-    int idEntidadBancaria = Integer.parseInt(request.getParameter("idEntidadBancaria"));
-    EntidadBancaria entidadBancaria = entidadBancariaDAO.read(idEntidadBancaria);
+    String nombre  = request.getParameter("nombre");
+    List entidadBancaria = entidadBancariaDAO.findByNombre(nombre);
 
     ObjectMapper objectMapper = new ObjectMapper();
     String json = objectMapper.writeValueAsString(entidadBancaria);
