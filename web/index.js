@@ -17,7 +17,7 @@ app.controller('EntidadCtrl', function($scope, $http) {
         });
     }; 
     
-    $scope.readEntidadBancariaByNombre = function() {
+    $scope.borrarEntidadBancaria = function() {
         $http.get("entidadBancaria.borrar.json.jsp").success(function(result) {
             $scope.beers=result;
         });
