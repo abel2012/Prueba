@@ -264,4 +264,47 @@ public class EntidadBancariaDAOImplJDBC implements com.fpmislata.prueba.Datos.En
 
 
     }
+             public List<EntidadBancaria> findByNombre(String nombre1) {
+        try {
+            Connection connection = connectionFactory.getConnection();
+            List<EntidadBancaria> Entidades = new ArrayList<>();
+            String selectSQL = "SELECT * FROM entidadbancaria WHERE nombre=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement.setString(1, nombre1);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+
+                int idEntidad = rs.getInt("idEntidad");
+                String codigoEntidad = rs.getString("codigoEntidad");
+                String nombre = rs.getString("nombre");
+                String cif = rs.getString("cif");
+                String tipoEntidadBancaria = rs.getString("tipoEntidadBancaria");
+
+
+
+                EntidadBancaria entidadBancaria = new EntidadBancaria();
+                entidadBancaria.setIdEntidadBancaria(idEntidad);
+                entidadBancaria.setCodigoEntidad(codigoEntidad);
+                entidadBancaria.setNombre(nombre);
+                entidadBancaria.setCif(cif);
+
+                if (tipoEntidadBancaria == null) {
+                    entidadBancaria.setTipoEntidadBancaria(null);
+                } else {
+                    entidadBancaria.setTipoEntidadBancaria(TipoEntidadBancaria.valueOf(tipoEntidadBancaria));
+                }
+
+                Entidades.add(entidadBancaria);
+            }
+
+
+            connection.close();
+            return Entidades;
+        } catch (Exception e) {
+            RuntimeException re = new RuntimeException(e);
+            throw re;
+        }
+
+
+    }
 }

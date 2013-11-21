@@ -11,5 +11,6 @@ import java.util.List;
  * @author alumno
  */
 public interface EntidadBancariaDAO extends GenericDAO<com.fpmislata.prueba.Negocio.EntidadBancaria, Integer> {
-      List<com.fpmislata.prueba.Negocio.EntidadBancaria> findByCodigo(String codigo);    
+      List<com.fpmislata.prueba.Negocio.EntidadBancaria> findByCodigo(String codigo);
+      List<com.fpmislata.prueba.Negocio.EntidadBancaria> findByNombre(String nombre1);    
 }
