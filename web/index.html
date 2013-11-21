@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+              <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Prueba 1</title>
+
+
+        <script language="javascript" type="text/javascript" src="lib/angularjs/js/angular.js"></script>
+        <script language="javascript" type="text/javascript" src="index.js"></script>
+
+    </head>
+
+    <body ng-controller="EntidadCtrl">
+        Id Beer<input ng-model="idBeer"> <button ng-click="readEntidadBancaria()">Read</button>
+
+        <p>idBeer:{{beer.id}}</p>
+        <p>Nombre:{{beer.name}}</p>
+        <p>Descripcion:{{beer.description}}</p>
+        <p>Grados:{{beer.abv}}</p>
+
+        
+        <button ng-click="readEntidadBancariaByNombre()">Read Beers</button>
+        <table>
+            <tr>
+                <td>idBeer</td>
+                <td>Nombre</td>
+                <td>Grados</td>
+            </tr>
+            <tr ng-repeat="beer in beers">
+                <td>{{beer.id}}</td>
+                <td>{{beer.name}}</td>
+                <td>{{beer.abv}}</td>   
+            </tr>
+            <tr>
+                <td colspan="3">Nº de filas:{{beers.length}}</td>
+            </tr>
+        </table>
+    </body>
+</html>
